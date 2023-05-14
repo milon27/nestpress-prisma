@@ -9,7 +9,7 @@
         "prefix": "npr",
         "body": [
             "import { Router } from \"express\";",
-            "import $1Controller from \"./${1/(.*)/${1:/downcase}/}.controller\";",
+            "import { $1Controller } from \"./${1/(.*)/${1:/downcase}/}.controller\";",
             "",
             "const $1Router = Router()",
             "",
