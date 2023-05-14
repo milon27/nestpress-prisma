@@ -1,13 +1,3 @@
-```bash
-git pull origin dev
+# todo
 
-pnpm install
-
-npm run prisma:deploy
-
-npm run prisma:gen
-
-npm run dev
-
-npm run start
-```
+-   write test case for email verify and forget password

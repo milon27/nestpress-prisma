@@ -7,24 +7,25 @@ services:
             dockerfile: Dockerfile
             target: staging
         depends_on:
-            - postgres
+            - mariadb
             - redis
         restart: always
         ports:
             - 4000:4000
 
-    postgres:
-        container_name: postgres
-        image: postgres:12.12
+    mariadb:
+        container_name: mariadb
+        image: mariadb:10.10
         restart: always
         environment:
-            - POSTGRES_USER=example
-            - POSTGRES_PASSWORD=myPassWord
-            - POSTGRES_DB=auth_db
+            - MARIADB_USER=milon27
+            - MARIADB_PASSWORD=myPassWord
+            - MARIADB_ROOT_PASSWORD=myPassWord
+            - MARIADB_DATABASE=my_db
         ports:
-            - 5434:5432
+            - 3307:3306
         volumes:
-            - db_vol:/var/lib/postgresql/data
+            - db_vol:/var/lib/mysql
 
     redis:
         container_name: redis
