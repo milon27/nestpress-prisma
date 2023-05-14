@@ -44,7 +44,6 @@ export const HealthCheckController = {
         try {
             await RedisUtil.setData("example-test-redis", "redis working", 30)
             const result = await RedisUtil.getData("example-test-redis")
-            // await RedisUtil.deleteByPattern("a-*")
             res.status(StatusCode.OK).send(MyResponse("redis connected", result))
         } catch (e) {
             myLogger().error(e)
@@ -57,6 +56,6 @@ export const HealthCheckController = {
         }
     },
     debug: (req: Request, res: Response) => {
-        return res.send({ m: "for debug only" })
+        return res.send({ message: "working fine" })
     },
 }

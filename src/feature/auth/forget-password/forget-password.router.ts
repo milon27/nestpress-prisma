@@ -9,7 +9,7 @@ const ForgetPasswordRouter = Router()
 
 /**
  * @description get reset password link
- * @url http://localhost:4000/v1/auth/forget-password/:email
+ * @url {{BASE_URL}}/auth/forget-password/:email
  */
 ForgetPasswordRouter.get(
     "/:email",
@@ -19,7 +19,7 @@ ForgetPasswordRouter.get(
 
 /**
  * @description reset password
- * @url http://localhost:4000/v1/auth/forget-password
+ * @url {{BASE_URL}}/auth/forget-password
  */
 ForgetPasswordRouter.post("/", validateMid(ForgetPasswordDto), ForgetPasswordController.verifyOtpAndUpdatePassword)
 

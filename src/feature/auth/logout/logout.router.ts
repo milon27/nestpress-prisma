@@ -4,10 +4,10 @@ import { LogoutController } from "./logout.controller"
 
 const LogoutRouter = Router()
 
-// todo: should be logged in user
 /**
  * @description logout user
- * @url http://localhost:4000/v1/auth/logout
+ * @note un logged in user/access token expired user can also login if they have valid refresh token
+ * @url {{BASE_URL}}/auth/logout
  */
 LogoutRouter.post("/", AuthMid.attachToken, LogoutController.logoutUser)
 

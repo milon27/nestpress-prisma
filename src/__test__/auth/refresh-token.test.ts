@@ -1,5 +1,5 @@
 import supertest from "supertest"
-import { describe, it, expect, beforeAll, beforeEach } from "vitest"
+import { describe, it, expect, beforeAll, beforeEach, afterAll } from "vitest"
 import app from "../../app"
 import { StatusCode } from "../../config/constant/code.constant"
 import { KeyConstant } from "../../config/constant/key.constant"
@@ -14,14 +14,15 @@ describe("generate new refresh+access token", () => {
 
     beforeAll(async () => {
         myLogger().info("====================== REFRESH-TOKEN.TEST.TS ======================")
+        await RedisUtil.clear()
         const { accessToken, refreshToken } = await loginUser()
         AT = accessToken
         RT = refreshToken
     })
 
-    beforeEach(async () => {
+    beforeEach(() => {
         myLogger().info("// Clear the Redis database before each test")
-        await RedisUtil.deleteByPattern(`${KeyConstant.RL_RT_MAX}*`)
+        RedisUtil.deleteByPattern(`${KeyConstant.RL_RT_MAX}*`)
     })
 
     it("need to pass both access token, refresh token", async () => {
@@ -81,4 +82,8 @@ describe("generate new refresh+access token", () => {
         expect(three).toBe(StatusCode.OK)
         expect(four).toBe(StatusCode.TOO_MANY_REQUEST)
     })
+})
+
+afterAll(async () => {
+    await RedisUtil.clear()
 })

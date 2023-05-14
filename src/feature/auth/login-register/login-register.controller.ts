@@ -18,7 +18,7 @@ export const LoginRegisterController = {
             if (!user) {
                 throw new NotFoundError(`No User Found with ${email}`)
             }
-            return LoginRegisterService.sendTokenResponse(req, res, user, "")
+            return LoginRegisterService.sendTokenResponse(req, res, user, "user logged-in successfully")
         } catch (e) {
             return next(e)
         }

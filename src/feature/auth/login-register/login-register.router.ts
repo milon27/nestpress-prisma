@@ -8,7 +8,7 @@ const LoginRegisterRouter = Router()
 
 /**
  * @description login with email
- * @url http://localhost:4000/v1/auth/login-with-email
+ * @url {{BASE_URL}}/auth/login-with-email
  */
 LoginRegisterRouter.post(
     "/login-with-email",
@@ -18,7 +18,7 @@ LoginRegisterRouter.post(
 
 /**
  * @description login with email
- * @url http://localhost:4000/v1/auth/login-with-google
+ * @url {{BASE_URL}}/auth/login-with-google
  */
 LoginRegisterRouter.post(
     "/login-with-google",
@@ -28,7 +28,7 @@ LoginRegisterRouter.post(
 
 /**
  * @description register a user
- * @url http://localhost:4000/v1/auth/register
+ * @url {{BASE_URL}}/auth/register
  */
 LoginRegisterRouter.post("/register", validateMid(RegisterDto), LoginRegisterController.register)
 

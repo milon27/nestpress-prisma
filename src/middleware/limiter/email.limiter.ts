@@ -8,8 +8,8 @@ import { redisClient } from "../../config/redis.config"
  * @param keyPrefix string
  * @returns RateLimitRequestHandler (middleware)
  */
-export const emailLimiter = (keyPrefix: string) =>
-    rateLimit({
+export const emailLimiter = (keyPrefix: string) => {
+    return rateLimit({
         windowMs: 24 * 60 * 60 * 1000, // 24 hours
         max: 3, // 3 email can be sent
         standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
@@ -26,3 +26,4 @@ export const emailLimiter = (keyPrefix: string) =>
         message:
             "you can get 3 forget password or email-verification link within 24 hours, please try again later.", // Set the error message to display when the rate limit is exceeded
     })
+}

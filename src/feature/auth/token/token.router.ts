@@ -7,7 +7,7 @@ const TokenRouter = Router()
 
 /**
  * @description access token + refresh token
- * @url http://localhost:4000/v1/auth/token
+ * @url {{BASE_URL}}/auth/token
  */
 TokenRouter.post("/", AuthMid.attachToken, refreshTokenLimiter, TokenController.generateNewTokens)
 

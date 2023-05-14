@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express"
 import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
-import { BadRequestError, ServerError, UnAuthorizedError } from "../../../model/error.model"
+import { BadRequestError, NotFoundError, ServerError } from "../../../model/error.model"
 import { SendResetPasswordEmail } from "../../../utils/email/send-email.util"
 import MyResponse from "../../../utils/my-response.util"
 import { OtpUtils } from "../../../utils/otp.util"
@@ -15,7 +15,7 @@ export const ForgetPasswordController = {
 
             const user = await UserService.getUserByIdentifier("email", email)
             if (!user) {
-                throw new UnAuthorizedError()
+                throw new NotFoundError("no user found!")
             }
             // todo: only verified user can ask for reset password to ignore spam
             // if (!user.isEmailVerified) {

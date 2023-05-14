@@ -1,4 +1,4 @@
-// import redisDelByPattern, { RedisDeletionMethod } from "@eturino/ioredis-del-by-pattern"
+import { myLogger } from "../config/logger"
 import { redisClient } from "../config/redis.config"
 
 export const RedisUtil = {
@@ -20,14 +20,35 @@ export const RedisUtil = {
     deleteData: async (key: string) => {
         await redisClient.del(key)
     },
-    deleteByPattern: async (pattern: string) => {
-        const keys = await redisClient.keys(pattern)
-        await redisClient.del(keys)
+    deleteByPattern: (pattern: string) => {
+        // Create a readable stream (object mode)
+        const stream = redisClient.scanStream({
+            match: pattern,
+        })
+        stream.on("data", async (keys) => {
+            // `keys` is an array of strings representing key names
+            if (keys.length) {
+                const pipeline = redisClient.pipeline()
+                keys.forEach((key: string) => {
+                    pipeline.del(key)
+                })
+                await pipeline.exec()
+            }
+        })
+        stream.on("end", () => {
+            myLogger().info("all keys deleted")
+        })
+
+        // or you can use this library
+        // import redisDelByPattern, { RedisDeletionMethod } from "@eturino/ioredis-del-by-pattern"
         // await redisDelByPattern({
         //     pattern,
         //     redis: redisClient, // ioredis client
         //     withPipeline: true,
         //     deletionMethod: RedisDeletionMethod.unlink,
         // })
+    },
+    clear: async () => {
+        await redisClient.flushdb()
     },
 }

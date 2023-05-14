@@ -5,31 +5,31 @@ const HealthCheckRouter = Router()
 
 /**
  * @description Check home route
- * @url http://localhost:4000/v1/
+ * @url {{BASE_URL}}/
  */
 HealthCheckRouter.get("/", HealthCheckController.getBasicInfo)
 
 /**
- * @description Check home route
- * @url http://localhost:4000/v1/db
+ * @description Check db connection
+ * @url {{BASE_URL}}/db
  */
 HealthCheckRouter.get("/db", HealthCheckController.checkDatabaseConnection)
 
 /**
- * @description Check home route
- * @url http://localhost:4000/v1/prisma
+ * @description Check any prisma related query
+ * @url {{BASE_URL}}/prisma
  */
 HealthCheckRouter.get("/prisma", HealthCheckController.prismaPerformance)
 
 /**
- * @description Check redis route
- * @url http://localhost:4000/v1/redis
+ * @description Check redis connection
+ * @url {{BASE_URL}}/redis
  */
 HealthCheckRouter.get("/redis", HealthCheckController.redisConnectionCheck)
 
 /**
- * @description Check home route
- * @url http://localhost:4000/v1/debug
+ * @description sample route
+ * @url {{BASE_URL}}/debug
  */
 HealthCheckRouter.get("/debug", HealthCheckController.debug)
 

@@ -36,18 +36,19 @@ npx nestpress@latest module category blog
 
     # reload / reopen vscode to restart TS server
     npm run dev # Api will run on port 4000
-    # health check: http://localhost:4000/v1/
+    # health check: http://localhost:4000/v1
 
     ```
 
-## How to push code
+## Update npm dependencies
 
--   setup husky Git hooks `npx husky install` it will generate a husky.sh file in `.husky/_` folder
--   create new branch `git checkout -b feature-branch`
--   add files `git add .`
--   commit files `git commit -m 'message'` [here husky wil check the linting, it will throw error and stop commit if there is any linting error, it will ignore warning]
--   push code `git push origin feature-branch`
--   always create Pull Request on `dev` branch
+```bash
+# Updates all dependencies in package.json
+pnpm up
+
+# run test to check the app is working fine or not
+npm run test
+```
 
 ## Run/Write test
 
@@ -57,9 +58,10 @@ npx nestpress@latest module category blog
 
 ## API endpoints and doc
 
--   BASE url: http://localhost:4000/v1/
+-   BASE url: http://localhost:4000/v1
 -   Swagger Doc url: [Not Implemented]
--   in `.doc` folder a postman json file `postman_collection.json` is available import it on your postman
+-   in `.doc` folder a postman json file `postman-collection.json` is available import it on your postman
+    -   you need add an environment in postman with variable `url=http://localhost:4000`
 
 ## Code Snippet on vscode
 
@@ -69,6 +71,15 @@ npx nestpress@latest module category blog
 -   generate a controller boilerplate
     -   create a file on a module called user.controller.ts
     -   `npc`+`User(this is the module name in PascalCase)`+`tab`
+
+## How to push code
+
+-   setup husky Git hooks `npx husky install` it will generate a husky.sh file in `.husky/_` folder
+-   create new branch `git checkout -b feature-branch`
+-   add files `git add .`
+-   commit files `git commit -m 'message'` [here husky wil check the linting, it will throw error and stop commit if there is any linting error, it will ignore warning]
+-   push code `git push origin feature-branch`
+-   always create Pull Request on `dev` branch
 
 ## Developer guide (code style)
 

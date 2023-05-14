@@ -42,7 +42,7 @@ export const VerifyEmailController = {
             await UserService.updateUser(userId, {
                 isEmailVerified: true,
             })
-            return res.status(StatusCode.OK).json(MyResponse("Otp verification successful"))
+            return res.status(StatusCode.OK).json(MyResponse("Email verification successful"))
         } catch (e) {
             return next(e)
         }
