@@ -1,0 +1,12 @@
+# need to update later
+version: "3.9"
+services:
+    api:
+        container_name: api
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: prod
+        restart: always
+        ports:
+            - 4000:4000

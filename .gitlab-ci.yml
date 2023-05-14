@@ -1,0 +1,54 @@
+# file name must be: .gitlab-ci.yml
+
+variables:
+    REGISTRY_NAME: registry.gitlab.com
+    IMAGE_NAME: registry.gitlab.com/xxxx/backend/xxxx-backend-api
+    IMAGE_TAG: dev-api-1.0
+
+stages:
+    # - build
+    - deploy
+
+# build_img:
+#   stage: build
+#   only:
+#     - dev
+#   image: docker:20.10.21
+#   services:
+#     - docker:20.10.21-dind # docker deamon in docker
+#   variables:
+#     DOCKER_TLS_CERTDIR: "/certs" # docker will create certs in this folder and image and services will share the same certs
+
+#   before_script:
+#     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS $REGISTRY_NAME
+#   script:
+#     - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+#     - docker push $IMAGE_NAME:$IMAGE_TAG $REGISTRY_NAME
+
+deploy_dev:
+    stage: deploy
+    only:
+        - dev
+    tags:
+        - dev
+    script:
+        - echo "reloading api on dev server..."
+        - docker --version
+        - bash .script/reload.dev.sh
+        - sleep 10
+        - docker ps -a
+        - docker logs api
+
+deploy_staging:
+    stage: deploy
+    only:
+        - staging
+    tags:
+        - staging
+    script:
+        - echo "reloading api on staging server..."
+        - docker --version
+        - bash .script/reload.staging.sh
+        - sleep 10
+        - docker ps -a
+        - docker logs api

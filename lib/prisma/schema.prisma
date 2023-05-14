@@ -1,0 +1,37 @@
+//  visualize schema here: https://prismaliser.app/
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider        = "prisma-client-js"
+    previewFeatures = ["filteredRelationCount", "jsonProtocol"] //"fullTextSearch", "fullTextIndex", 
+}
+
+// #region all models
+
+model User {
+    id              String  @id @default(cuid())
+    fullName        String  @map("full_name")
+    email           String  @unique
+    password        String
+    gender          Gender  @default(other)
+    avatar          String? // only file name
+    isEmailVerified Boolean @default(false) @map("is_email_verified")
+
+    lastLoggedIn DateTime @default(now()) @map("last_logged_in") @db.DateTime(0)
+    createdAt    DateTime @default(now()) @map("created_at") @db.DateTime(0)
+    updatedAt    DateTime @default(now()) @updatedAt @map("updated_at") @db.DateTime(0)
+
+    @@map("user")
+}
+
+enum Gender {
+    male
+    female
+    other
+}
+
+// #endregion

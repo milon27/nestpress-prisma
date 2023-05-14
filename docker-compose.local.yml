@@ -1,0 +1,56 @@
+version: "3.9"
+services:
+    mariadb:
+        container_name: mariadb
+        image: mariadb:10.10
+        restart: always
+        environment:
+            - MARIADB_USER=milon27
+            - MARIADB_PASSWORD=myPassWord
+            - MARIADB_ROOT_PASSWORD=myPassWord
+            - MARIADB_DATABASE=my_db
+        ports:
+            - 3307:3306
+        volumes:
+            - db_vol:/var/lib/mysql
+            # - .backup-db:/docker-entrypoint-initdb.d
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin:5.2
+        restart: always
+        environment:
+            - PMA_HOST=mariadb
+            - MYSQL_ROOT_PASSWORD=myPassWord
+        ports:
+            - 8080:80
+        redis:
+            container_name: redis
+            image: redis:7.0.7-alpine
+            restart: always
+            volumes:
+                - redis_vol:/data
+            ports:
+                - 6379:6379
+        redis_gui:
+            container_name: redis_gui
+            restart: always
+            image: redislabs/redisinsight
+            depends_on:
+                - redis
+            ports:
+                - 8001:8001
+        # api:
+        #   container_name: api
+        #   build:
+        #     context: .
+        #     dockerfile: Dockerfile
+        #     target: dev
+        #   # depends_on:
+        #   #   - postgres
+        #   #   - redis
+        #   ports:
+        #     - 4000:4000
+        #volumes(root label)
+volumes:
+    db_vol: {}
+    redis_vol: {}
