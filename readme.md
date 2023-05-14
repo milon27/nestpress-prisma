@@ -1,9 +1,21 @@
 # Nestpress boilerplate with Authentication module
 
-## How to use this template
+## How to use this template using [nestpress cli](https://www.npmjs.com/package/nestpress).
 
 ```bash
+# create project
 npx nestpress@latest init
+
+# create author, blog, category module (by default it will create single module)
+
+# create a author module on src/feature/ directory
+npx nestpress@latest module author
+# create a blog multi module on src/feature/ directory [-m for multi module]
+npx nestpress@latest module blog -m
+# create a category module as blog sub module on src/feature/blog directory
+npx nestpress@latest module category blog
+
+# for more use of nestpress cli checkout this: https://www.npmjs.com/package/nestpress
 ```
 
 ## How to run
