@@ -1,5 +1,11 @@
 # Nestpress boilerplate with Authentication module
 
+## How to use this template
+
+```bash
+npx nestpress@latest init
+```
+
 ## How to run
 
 -   make sure you have [docker](https://www.docker.com/products/docker-desktop/) and [pnpm](https://pnpm.io/) install on your system as node package manager
@@ -27,7 +33,7 @@
 -   setup husky Git hooks `npx husky install` it will generate a husky.sh file in `.husky/_` folder
 -   create new branch `git checkout -b feature-branch`
 -   add files `git add .`
--   commit files `git commit -m 'message'` [here husky wil check the linting, it will thorw error and stop commit if there is any linting error, it will ignore warning]
+-   commit files `git commit -m 'message'` [here husky wil check the linting, it will throw error and stop commit if there is any linting error, it will ignore warning]
 -   push code `git push origin feature-branch`
 -   always create Pull Request on `dev` branch
 
@@ -64,7 +70,7 @@
     -   Each feature will have a module folder inside `feature` folder
 
         -   we might have 2 types of module - 1. singular 2. multi-module
-        -   e.g. singular (user module)
+        -   e.g. singular (**user module** check `src/feature/user`)
             -   `user module` folder structure
             -   `src/feature/user`
                 -   `-> dto/create-user.dto.ts`
@@ -72,7 +78,7 @@
                 -   `-> user.controller.ts`
                 -   `-> user.router.ts`
                 -   `-> user.service.ts`
-        -   e.g. multi-module (auth module)
+        -   e.g. multi-module (**auth module** check `src/feature/auth`)
             -   `auth module` folder structure
             -   `src/feature/auth`
                 -   `-> auth.router.ts(this is the main router where all the sub singular module will connect)`
