@@ -17,6 +17,7 @@ export const validateMid = <T>(schema: ObjectSchema<T>) => {
             if (errors) {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 err = ((errors as any).details as Array<any>).map((item) => {
+                    // todo: try when en empty object is pass but min(1) is required
                     const key = item.path.toString().replaceAll(",", ".")
                     return {
                         key,
