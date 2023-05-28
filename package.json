@@ -13,7 +13,7 @@
         "clean": "rm -rf dist/*",
         "lint": "npx eslint . --fix",
         "lint:check": "npx eslint .",
-        "test": "npm run prisma:reset && vitest",
+        "test": "npm run prisma:reset && vitest --no-threads",
         "prisma:reset": "prisma migrate reset",
         "prisma:dev": "prisma migrate dev",
         "prisma:deploy": "prisma migrate deploy",

@@ -1,11 +1,11 @@
 import supertest from "supertest"
-import { describe, it, expect, beforeAll, beforeEach, afterAll } from "vitest"
+import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest"
 import app from "../../app"
 import { StatusCode } from "../../config/constant/code.constant"
 import { KeyConstant } from "../../config/constant/key.constant"
 import { myLogger } from "../../config/logger"
-import { loginUser } from "../data"
 import { RedisUtil } from "../../utils/redis.util"
+import { TestUtil } from "../test.util"
 
 describe("generate new refresh+access token", () => {
     let AT: string
@@ -13,15 +13,17 @@ describe("generate new refresh+access token", () => {
     let oldRefreshToken: string
 
     beforeAll(async () => {
-        myLogger().info("====================== REFRESH-TOKEN.TEST.TS ======================")
-        await RedisUtil.clear()
-        const { accessToken, refreshToken } = await loginUser()
+        await TestUtil.cleanDbAndRedis()
+        const { accessToken, refreshToken } = await TestUtil.createUser()
         AT = accessToken
         RT = refreshToken
     })
+    afterAll(async () => {
+        await TestUtil.cleanDbAndRedis()
+    })
 
     beforeEach(() => {
-        myLogger().info("// Clear the Redis database before each test")
+        myLogger().info("--> Clear the Redis for only rate limit for getting refresh token before each test")
         RedisUtil.deleteByPattern(`${KeyConstant.RL_RT_MAX}*`)
     })
 
@@ -82,8 +84,4 @@ describe("generate new refresh+access token", () => {
         expect(three).toBe(StatusCode.OK)
         expect(four).toBe(StatusCode.TOO_MANY_REQUEST)
     })
-})
-
-afterAll(async () => {
-    await RedisUtil.clear()
 })
