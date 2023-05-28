@@ -1,4 +1,5 @@
-import { StatusCode, ErrorCode } from "../config/constant/code.constant"
+import { ZodFormattedError } from "zod"
+import { ErrorCode, StatusCode } from "../config/constant/code.constant"
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
 const MyResponse = <T>(message: string, response?: T, statusCode = StatusCode.OK) => {
@@ -13,10 +14,15 @@ const MyResponse = <T>(message: string, response?: T, statusCode = StatusCode.OK
 
 export const MyErrorResponse = (
     errorCode = ErrorCode.SERVER_ERROR,
-    message?: string | { key: string; message: string }[]
+    message?:
+        | string
+        | ZodFormattedError<
+              {
+                  [x: string]: unknown
+              },
+              string
+          >
 ) => {
-    // mse
-    // message status error-obj
     return {
         errorCode,
         message,

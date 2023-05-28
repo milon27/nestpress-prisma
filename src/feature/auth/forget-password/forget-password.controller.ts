@@ -6,12 +6,12 @@ import { SendResetPasswordEmail } from "../../../utils/email/send-email.util"
 import MyResponse from "../../../utils/my-response.util"
 import { OtpUtils } from "../../../utils/otp.util"
 import { UserService } from "../../user/user.service"
-import { IForgetPasswordDto } from "./dto/forget-password.dto"
+import { IEmailParamDto, IResetPasswordDto } from "./dto/forget-password.dto"
 
 export const ForgetPasswordController = {
     getResetOtp: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { email } = req.params
+            const { email } = req.params as IEmailParamDto
 
             const user = await UserService.getUserByIdentifier("email", email)
             if (!user) {
@@ -35,7 +35,7 @@ export const ForgetPasswordController = {
     },
     verifyOtpAndUpdatePassword: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { code, password } = req.body as IForgetPasswordDto
+            const { code, password } = req.body as IResetPasswordDto
 
             const userId = await OtpUtils.verifyOtp(KeyConstant.PASS_OTP_PREFIX, code)
             if (!userId) {

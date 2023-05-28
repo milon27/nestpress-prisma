@@ -1,9 +1,7 @@
-import Joi from "joi"
+import { z } from "zod"
 
-export interface IVerifyEmailDto {
-    code: string
-}
-
-export const VerifyEmailDto = Joi.object<IVerifyEmailDto>({
-    code: Joi.string().trim().required(),
+export const VerifyEmailDto = z.object({
+    code: z.string().trim(),
 })
+
+export type IVerifyEmailDto = z.infer<typeof VerifyEmailDto>

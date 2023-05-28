@@ -127,7 +127,7 @@ npm run test
     -   Object name: `const UserService={}` should be in PascalCase
     -   Router Name: `const UserRouter = Router()`
     -   Controller Name: `const UserController = {}`
-    -   DTO Name: `const CreateUserDto = Joi.object()`
+    -   DTO Name: `const CreateUserDto = z.object({})`
 -   **Import/Export Module**
 
     -   on app.ts and for all \*.router.ts file use default export

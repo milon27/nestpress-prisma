@@ -1,11 +1,8 @@
-import Joi from "joi"
+import { z } from "zod"
 
-export interface IForgetPasswordDto {
-    code: string
-    password: string
-}
-
-export const ForgetPasswordDto = Joi.object<IForgetPasswordDto>({
-    code: Joi.string().trim().required(),
-    password: Joi.string().trim().required(),
+export const ResetPasswordDto = z.object({
+    code: z.string().trim(),
+    password: z.string().trim(),
 })
+
+export type IResetPasswordDto = z.infer<typeof ResetPasswordDto>

@@ -1,9 +1,10 @@
 import { Router } from "express"
-import { ForgetPasswordController } from "./forget-password.controller"
-import { validateMid } from "../../../middleware/validate.mid"
-import { ForgetPasswordDto } from "./dto/forget-password.dto"
 import { KeyConstant } from "../../../config/constant/key.constant"
 import { emailLimiter } from "../../../middleware/limiter/email.limiter"
+import { validateMid } from "../../../middleware/validate.mid"
+import { ResetPasswordDto } from "./dto/forget-password.dto"
+import { ForgetPasswordController } from "./forget-password.controller"
+import { EmailParamDto } from "../../../common/dto/email-param.dto"
 
 const ForgetPasswordRouter = Router()
 
@@ -13,6 +14,7 @@ const ForgetPasswordRouter = Router()
  */
 ForgetPasswordRouter.get(
     "/:email",
+    validateMid({ params: EmailParamDto }),
     emailLimiter(KeyConstant.RL_RESET_PASS_MAX),
     ForgetPasswordController.getResetOtp
 )
@@ -21,6 +23,10 @@ ForgetPasswordRouter.get(
  * @description reset password
  * @url {{BASE_URL}}/auth/forget-password
  */
-ForgetPasswordRouter.post("/", validateMid(ForgetPasswordDto), ForgetPasswordController.verifyOtpAndUpdatePassword)
+ForgetPasswordRouter.post(
+    "/",
+    validateMid({ body: ResetPasswordDto }),
+    ForgetPasswordController.verifyOtpAndUpdatePassword
+)
 
 export default ForgetPasswordRouter

@@ -7,11 +7,12 @@ import MyResponse from "../../../utils/my-response.util"
 import { OtpUtils } from "../../../utils/otp.util"
 import { UserService } from "../../user/user.service"
 import { IVerifyEmailDto } from "./dto/verify-email.dto"
+import { IEmailParamDto } from "../forget-password/dto/forget-password.dto"
 
 export const VerifyEmailController = {
     getOtp: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { email } = req.params
+            const { email } = req.params as IEmailParamDto
 
             const user = await UserService.getUserByIdentifier("email", email)
             if (!user) {
