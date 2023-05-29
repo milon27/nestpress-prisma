@@ -100,7 +100,7 @@
             "import { $1 } from \"@prisma/client\"",
             "import { Request, Response, NextFunction } from \"express\"",
             "import { $1Dto } from \"../models/dto/$1Dto\"",
-            "import MyResponse from \"../models/MyResponse\"",
+            "import { MyResponse } from \"../models/MyResponse\"",
             "import Constant from \"../utils/Constant\"",
             "import Helper from \"../utils/Helper\"",
             "",

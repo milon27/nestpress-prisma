@@ -2,7 +2,7 @@ import { ZodFormattedError } from "zod"
 import { ErrorCode, StatusCode } from "../config/constant/code.constant"
 
 // eslint-disable-next-line @typescript-eslint/default-param-last
-const MyResponse = <T>(message: string, response?: T, statusCode = StatusCode.OK) => {
+export const MyResponse = <T>(message: string, response?: T, statusCode = StatusCode.OK) => {
     // msd
     // message status data
     return {
@@ -28,5 +28,3 @@ export const MyErrorResponse = (
         message,
     }
 }
-
-export default MyResponse

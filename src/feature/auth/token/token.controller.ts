@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express"
 import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
-import { UnAuthorizedError } from "../../../model/error.model"
+import { UnAuthorizedError } from "../../../common/model/error.model"
 import { AccessTokenUtil } from "../../../utils/access-token.util"
 import { CookieUtil } from "../../../utils/cookie.util"
-import MyResponse from "../../../utils/my-response.util"
+import { MyResponse } from "../../../utils/my-response.util"
 
 export const TokenController = {
     generateNewTokens: async (req: Request, res: Response, next: NextFunction) => {

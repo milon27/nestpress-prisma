@@ -1,6 +1,6 @@
-import { myLogger } from "../../config/logger"
-import { ServerError } from "../../model/error.model"
-import { EmailService } from "./email.util"
+import { myLogger } from "../config/logger"
+import { ServerError } from "../common/model/error.model"
+import { EmailService } from "../common/module/email/email.service"
 
 export const SendResetPasswordEmail = async (name: string, email: string, resetLink: string): Promise<void> => {
     try {

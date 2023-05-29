@@ -6,7 +6,7 @@ import { KeyConstant } from "../../../config/constant/key.constant"
 import { myLogger } from "../../../config/logger"
 import { AccessTokenUtil } from "../../../utils/access-token.util"
 import { CookieUtil } from "../../../utils/cookie.util"
-import MyResponse from "../../../utils/my-response.util"
+import { MyResponse } from "../../../utils/my-response.util"
 
 const client = new OAuth2Client()
 

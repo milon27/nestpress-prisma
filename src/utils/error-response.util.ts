@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client"
 import { Response } from "express"
 import { ErrorCode, StatusCode } from "../config/constant/code.constant"
 import { PrismaErrorCode } from "../config/prisma/prisma-error-code"
-import { ServerError } from "../model/error.model"
+import { ServerError } from "../common/model/error.model"
 import { MyErrorResponse } from "./my-response.util"
 
 const errorResponse = (

@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer"
-import { myLogger } from "../../config/logger"
+import { myLogger } from "../../../config/logger"
 import { ServerError } from "../../model/error.model"
 
 const mailTransporter = nodemailer.createTransport({
@@ -18,7 +18,7 @@ interface EmailData {
 }
 
 export const EmailService = {
-    sendEmail: async ({ to, subject, html }: EmailData): Promise<void> => {
+    sendEmail: async ({ to, subject, html }: EmailData, shouldWait = true): Promise<void> => {
         try {
             const mailOptions = {
                 from: process.env.SMTP_EMAIL_FROM || "noreply@example.com", // Sender's email address
@@ -26,9 +26,17 @@ export const EmailService = {
                 subject, // Subject of the email
                 html, // HTML content of the email
             }
-
-            await mailTransporter.sendMail(mailOptions)
-            myLogger().info(`Email sent to ${to}`)
+            if (shouldWait) {
+                await mailTransporter.sendMail(mailOptions)
+            } else {
+                mailTransporter.sendMail(mailOptions, (err, info) => {
+                    if (err) {
+                        myLogger().error(`Error sending email: ${(err as Error).message}`)
+                        return
+                    }
+                    myLogger().info(`Email sent to ${to}, id: ${info.messageId}`)
+                })
+            }
         } catch (error) {
             myLogger().error(`Error sending email: ${(error as Error).message}`)
             throw new ServerError()

@@ -2,7 +2,7 @@
 
 declare namespace Express {
     // type PrismaClient = import("@prisma/client").PrismaClient
-    type ICurrentUser = import("../../model/current-user.model").ICurrentUser
+    type ICurrentUser = import("../../common/model/current-user.model").ICurrentUser
 
     export interface Request {
         user: ICurrentUser
