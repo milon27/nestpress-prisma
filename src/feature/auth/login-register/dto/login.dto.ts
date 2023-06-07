@@ -1,19 +1,13 @@
-import Joi from "joi"
+import { z } from "zod"
 
-export interface ILoginWithEmailDto {
-    email: string
-    password: string
-}
-
-export const LoginWithEmailDto = Joi.object<ILoginWithEmailDto>({
-    email: Joi.string().trim().email({ minDomainSegments: 2 }).required(),
-    password: Joi.string().trim().min(6).required(),
+export const LoginWithEmailDto = z.object({
+    email: z.string().trim().email(),
+    password: z.string().trim().min(6),
 })
 
-export interface ILoginWithGoogleDto {
-    idToken: string
-}
+export type ILoginWithEmailDto = z.infer<typeof LoginWithEmailDto>
 
-export const LoginWithGoogleDto = Joi.object<ILoginWithGoogleDto>({
-    idToken: Joi.string().trim().required(),
+export const LoginWithGoogleDto = z.object({
+    idToken: z.string().trim(),
 })
+export type ILoginWithGoogleDto = z.infer<typeof LoginWithGoogleDto>

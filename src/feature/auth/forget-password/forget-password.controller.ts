@@ -1,17 +1,18 @@
 import { NextFunction, Request, Response } from "express"
 import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
-import { BadRequestError, NotFoundError, ServerError } from "../../../model/error.model"
-import { SendResetPasswordEmail } from "../../../utils/email/send-email.util"
-import MyResponse from "../../../utils/my-response.util"
+import { BadRequestError, NotFoundError, ServerError } from "../../../common/model/error.model"
+import { SendResetPasswordEmail } from "../../../utils/send-email.util"
+import { MyResponse } from "../../../utils/my-response.util"
 import { OtpUtils } from "../../../utils/otp.util"
 import { UserService } from "../../user/user.service"
-import { IForgetPasswordDto } from "./dto/forget-password.dto"
+import { IResetPasswordDto } from "./dto/forget-password.dto"
+import { IEmailParamDto } from "../../../common/dto/email-param.dto"
 
 export const ForgetPasswordController = {
     getResetOtp: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { email } = req.params
+            const { email } = req.params as IEmailParamDto
 
             const user = await UserService.getUserByIdentifier("email", email)
             if (!user) {
@@ -35,7 +36,7 @@ export const ForgetPasswordController = {
     },
     verifyOtpAndUpdatePassword: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { code, password } = req.body as IForgetPasswordDto
+            const { code, password } = req.body as IResetPasswordDto
 
             const userId = await OtpUtils.verifyOtp(KeyConstant.PASS_OTP_PREFIX, code)
             if (!userId) {

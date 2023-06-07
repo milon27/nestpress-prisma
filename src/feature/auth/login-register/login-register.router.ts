@@ -12,7 +12,7 @@ const LoginRegisterRouter = Router()
  */
 LoginRegisterRouter.post(
     "/login-with-email",
-    validateMid(LoginWithEmailDto),
+    validateMid({ body: LoginWithEmailDto }),
     LoginRegisterController.loginWithEmail
 )
 
@@ -22,7 +22,7 @@ LoginRegisterRouter.post(
  */
 LoginRegisterRouter.post(
     "/login-with-google",
-    validateMid(LoginWithGoogleDto),
+    validateMid({ body: LoginWithGoogleDto }),
     LoginRegisterController.loginRegisterWithGoogle
 )
 
@@ -30,6 +30,6 @@ LoginRegisterRouter.post(
  * @description register a user
  * @url {{BASE_URL}}/auth/register
  */
-LoginRegisterRouter.post("/register", validateMid(RegisterDto), LoginRegisterController.register)
+LoginRegisterRouter.post("/register", validateMid({ body: RegisterDto }), LoginRegisterController.register)
 
 export default LoginRegisterRouter

@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
 import { ErrorCode, StatusCode } from "../../config/constant/code.constant"
 import { prismaClient } from "../../config/prisma/prisma.config"
-import MyResponse, { MyErrorResponse } from "../../utils/my-response.util"
+import { MyResponse, MyErrorResponse } from "../../utils/my-response.util"
 import { RedisUtil } from "../../utils/redis.util"
 import { myLogger } from "../../config/logger"
 

@@ -1,17 +1,18 @@
 import { NextFunction, Request, Response } from "express"
 import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
-import { BadRequestError, ServerError, UnAuthorizedError } from "../../../model/error.model"
-import { SendEmailVerificationCode } from "../../../utils/email/send-email.util"
-import MyResponse from "../../../utils/my-response.util"
+import { BadRequestError, ServerError, UnAuthorizedError } from "../../../common/model/error.model"
+import { SendEmailVerificationCode } from "../../../utils/send-email.util"
+import { MyResponse } from "../../../utils/my-response.util"
 import { OtpUtils } from "../../../utils/otp.util"
 import { UserService } from "../../user/user.service"
 import { IVerifyEmailDto } from "./dto/verify-email.dto"
+import { IEmailParamDto } from "../../../common/dto/email-param.dto"
 
 export const VerifyEmailController = {
     getOtp: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { email } = req.params
+            const { email } = req.params as IEmailParamDto
 
             const user = await UserService.getUserByIdentifier("email", email)
             if (!user) {

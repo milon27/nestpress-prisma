@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import { ErrorCode, StatusCode } from "../config/constant/code.constant"
+import { ErrorCode, StatusCode } from "../../config/constant/code.constant"
 
 export class ServerError extends Error {
     statusCode = StatusCode.SERVER_ERROR

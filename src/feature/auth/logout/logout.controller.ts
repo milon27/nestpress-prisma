@@ -3,8 +3,8 @@ import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
 import { AccessTokenUtil } from "../../../utils/access-token.util"
 import { CookieUtil } from "../../../utils/cookie.util"
-import MyResponse from "../../../utils/my-response.util"
-import { UnAuthorizedError } from "../../../model/error.model"
+import { MyResponse } from "../../../utils/my-response.util"
+import { UnAuthorizedError } from "../../../common/model/error.model"
 
 export const LogoutController = {
     logoutUser: async (req: Request, res: Response, next: NextFunction) => {

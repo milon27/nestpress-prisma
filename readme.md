@@ -54,6 +54,7 @@ npm run test
 
 -   create .env.test file from .env.example and update values
 -   all test file will be in `src/__test__` directory
+    -   on each test file we will have `beforeAll()` and `afterAll()` it will clear `db+redis`.
 -   run `npm run test` for integration test
 -   for testing we are using `vitest, supertest`
 
@@ -127,7 +128,7 @@ npm run test
     -   Object name: `const UserService={}` should be in PascalCase
     -   Router Name: `const UserRouter = Router()`
     -   Controller Name: `const UserController = {}`
-    -   DTO Name: `const CreateUserDto = Joi.object()`
+    -   DTO Name: `const CreateUserDto = z.object({})`
 -   **Import/Export Module**
 
     -   on app.ts and for all \*.router.ts file use default export

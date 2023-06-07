@@ -3,8 +3,8 @@ import jwt from "jsonwebtoken"
 import { createId } from "@paralleldrive/cuid2"
 import { KeyConstant } from "../config/constant/key.constant"
 import { myLogger } from "../config/logger"
-import { ICurrentUser } from "../model/current-user.model"
-import { JWTExpiredError, UnAuthorizedError } from "../model/error.model"
+import { ICurrentUser } from "../common/model/current-user.model"
+import { JWTExpiredError, UnAuthorizedError } from "../common/model/error.model"
 import { RedisUtil } from "./redis.util"
 
 export const AccessTokenUtil = {

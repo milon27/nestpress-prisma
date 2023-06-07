@@ -1,6 +1,7 @@
 import { myLogger } from "../config/logger"
 import { redisClient } from "../config/redis.config"
 
+// we are using redis for block refresh token, otp
 export const RedisUtil = {
     getData: async <T>(key: string): Promise<T | undefined> => {
         const data = await redisClient.get(key)

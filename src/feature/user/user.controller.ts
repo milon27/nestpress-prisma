@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express"
 import { UserService } from "./user.service"
-import MyResponse from "../../utils/my-response.util"
-import { UnAuthorizedError } from "../../model/error.model"
+import { MyResponse } from "../../utils/my-response.util"
+import { UnAuthorizedError } from "../../common/model/error.model"
 import { StatusCode } from "../../config/constant/code.constant"
 
 export const UserController = {

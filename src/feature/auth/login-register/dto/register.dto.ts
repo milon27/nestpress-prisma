@@ -1,20 +1,14 @@
-import Joi from "joi"
-import { CreateUserDto, ICreateUserDto } from "../../../user/dto/create-user.dto"
+import { z } from "zod"
+import { CreateUserDto } from "../../../user/dto/create-user.dto"
 
 export enum RegisterProvider {
     simple = "simple",
     google = "google",
 }
 
-export interface IRegisterDto {
-    provider: RegisterProvider
-    user: ICreateUserDto
-}
-
-export const RegisterDto = Joi.object<IRegisterDto>({
-    provider: Joi.string()
-        .trim()
-        .valid(...Object.values(RegisterProvider))
-        .required(),
-    user: CreateUserDto.required(),
+export const RegisterDto = z.object({
+    provider: z.nativeEnum(RegisterProvider),
+    user: CreateUserDto,
 })
+
+export type IRegisterDto = z.infer<typeof RegisterDto>
