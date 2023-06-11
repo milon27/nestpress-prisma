@@ -3,22 +3,19 @@ import { prismaClient } from "./prisma/prisma.config"
 import { myLogger } from "./logger"
 
 export const shutdownServer = (server: Server) => {
-    prismaClient.$on("beforeExit", () => {
+    const downServerGracefully = (message = "server closed by signal") => {
         server.close(() => {
-            myLogger().info("database connection lost, server closed")
+            myLogger().info(message)
+            prismaClient.$disconnect()
         })
-    })
+    }
+
     process.on("SIGTERM", () => {
-        server.close(() => {
-            myLogger().info("server closed by signal")
-        })
+        downServerGracefully()
     })
     const unexpectedErrorHandler = (error: Error) => {
         myLogger().error(error)
-        server.close(() => {
-            myLogger().info("unexpectedErrorHandler : Server closed")
-            process.exit(1)
-        })
+        downServerGracefully("unexpectedErrorHandler : Server closed")
     }
 
     process.on("uncaughtException", unexpectedErrorHandler)
