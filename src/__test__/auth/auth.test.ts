@@ -28,6 +28,7 @@ describe("/auth", () => {
             expect(statusCode).toBe(StatusCode.OK)
             expect(body.response.accessToken).toBeDefined()
             expect(body.response.refreshToken).toBeDefined()
+            expect(body.response.id).toBeDefined()
         })
     })
     describe("login a user", () => {
@@ -39,6 +40,7 @@ describe("/auth", () => {
             expect(statusCode).toBe(StatusCode.OK)
             expect(body.response.accessToken).toBeDefined()
             expect(body.response.refreshToken).toBeDefined()
+            expect(body.response.id).toBeDefined()
             accessToken = body.response.accessToken
             refreshToken = body.response.refreshToken
         })
