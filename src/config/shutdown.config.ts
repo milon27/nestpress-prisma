@@ -4,9 +4,9 @@ import { myLogger } from "./logger"
 
 export const shutdownServer = (server: Server) => {
     const downServerGracefully = (message = "server closed by signal") => {
-        server.close(async () => {
+        server.close(() => {
             myLogger().info(message)
-            await prismaClient.$disconnect()
+            prismaClient.$disconnect()
         })
     }
 
