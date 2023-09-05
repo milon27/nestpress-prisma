@@ -1,6 +1,6 @@
 {
     "name": "nestpress-server",
-    "version": "0.0.0",
+    "version": "0.0.2",
     "description": "An express boilerplate structured like nest.js, with completed authentication with refresh access token used ORM as prisma.",
     "main": "dist/src/server.js",
     "prisma": {
