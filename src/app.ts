@@ -14,7 +14,7 @@ import { loggerMid } from "./middleware/logger.mid"
 initEnvConfig()
 const app = express()
 Sentry.init(getSentryConfig(app))
-
+hello = "hello"
 // middleware
 app.use(cors({ origin: true, credentials: true }))
 app.use(helmet())
