@@ -1,6 +1,7 @@
-import { Request, Response } from "express"
 import { User } from "@prisma/client"
+import { Request, Response } from "express"
 import { OAuth2Client, TokenPayload } from "google-auth-library"
+import { ICurrentUser, IUserJWT } from "../../../common/model/current-user.model"
 import { StatusCode } from "../../../config/constant/code.constant"
 import { KeyConstant } from "../../../config/constant/key.constant"
 import { myLogger } from "../../../config/logger"
@@ -48,10 +49,12 @@ export const LoginRegisterService = {
 
     sendTokenResponse: (req: Request, res: Response, user: Omit<User, "password">, message: string) => {
         // get token and set into cookie
-        const { accessToken, refreshToken } = AccessTokenUtil.generateTokens({ id: user.id })
+        const payload = { id: user.id } as IUserJWT
+        const userPayload = { ...user } as ICurrentUser
+        const { accessToken, refreshToken } = AccessTokenUtil.generateTokens(payload)
 
         CookieUtil.setHttpCookie(req, res, KeyConstant.ACCESS_TOKEN_KEY, accessToken)
         CookieUtil.setHttpCookie(req, res, KeyConstant.REFRESH_TOKEN_KEY, refreshToken)
-        return res.status(StatusCode.OK).json(MyResponse(message, { accessToken, refreshToken }))
+        return res.status(StatusCode.OK).json(MyResponse(message, { ...userPayload, accessToken, refreshToken }))
     },
 }

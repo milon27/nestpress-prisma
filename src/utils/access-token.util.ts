@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 import { createId } from "@paralleldrive/cuid2"
 import { KeyConstant } from "../config/constant/key.constant"
 import { myLogger } from "../config/logger"
-import { ICurrentUser } from "../common/model/current-user.model"
+import { IUserJWT } from "../common/model/current-user.model"
 import { JWTExpiredError, UnAuthorizedError } from "../common/model/error.model"
 import { RedisUtil } from "./redis.util"
 
@@ -12,7 +12,7 @@ export const AccessTokenUtil = {
      * @param payload
      * @returns accessToken, refreshToken
      */
-    generateTokens: (payload: ICurrentUser) => {
+    generateTokens: (payload: IUserJWT) => {
         const accessToken = jwt.sign({ at_random: createId(), ...payload }, `${process.env.JWT_SECRET}`, {
             issuer: process.env.JWT_ISSUER,
             expiresIn: `${process.env.JWT_AT_EXPIRE}`,
@@ -23,16 +23,16 @@ export const AccessTokenUtil = {
         })
         return { accessToken, refreshToken }
     },
-    verifyToken: (token?: string): ICurrentUser => {
+    verifyToken: (token?: string): IUserJWT => {
         try {
             if (!token) {
                 throw new UnAuthorizedError()
             }
-            const payload = jwt.verify(token, `${process.env.JWT_SECRET}`) as ICurrentUser
+            const payload = jwt.verify(token, `${process.env.JWT_SECRET}`) as IUserJWT
             if (!payload) {
                 throw new UnAuthorizedError()
             }
-            return { id: payload.id } as ICurrentUser
+            return { id: payload.id } satisfies IUserJWT
         } catch (e) {
             if (token && e instanceof jwt.TokenExpiredError) {
                 throw new JWTExpiredError()

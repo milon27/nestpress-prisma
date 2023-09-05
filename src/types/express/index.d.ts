@@ -2,10 +2,10 @@
 
 declare namespace Express {
     // type PrismaClient = import("@prisma/client").PrismaClient
-    type ICurrentUser = import("../../common/model/current-user.model").ICurrentUser
+    type IUserJWT = import("../../common/model/current-user.model").IUserJWT
 
     export interface Request {
-        user: ICurrentUser
+        user: IUserJWT
         // prisma: PrismaClient
         agent: "android" | "browser" | "postman"
         isHttps: boolean

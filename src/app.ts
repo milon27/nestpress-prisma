@@ -16,13 +16,13 @@ const app = express()
 Sentry.init(getSentryConfig(app))
 
 // middleware
+app.use(cors({ origin: true, credentials: true }))
 app.use(helmet())
 app.use(Sentry.Handlers.requestHandler())
 app.use(express.static("public"))
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-app.use(cors({ origin: true }))
 app.use([infoMid, loggerMid])
 app.use(Sentry.Handlers.tracingHandler())
 

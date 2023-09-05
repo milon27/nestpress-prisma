@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express"
-import { UserService } from "./user.service"
-import { MyResponse } from "../../utils/my-response.util"
 import { UnAuthorizedError } from "../../common/model/error.model"
 import { StatusCode } from "../../config/constant/code.constant"
+import { MyResponse } from "../../utils/my-response.util"
+import { UserService } from "./user.service"
 
 export const UserController = {
     getLoggedInUser: async (req: Request, res: Response, next: NextFunction) => {
