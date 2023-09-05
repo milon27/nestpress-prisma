@@ -3,7 +3,8 @@
         "_postman_id": "777ce19b-5ed0-4a9d-ada9-74506e32d70e",
         "name": "NestPress v1",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-        "_exporter_id": "12238877"
+        "_exporter_id": "12238877",
+        "_collection_link": "https://milon27.postman.co/workspace/My-Workspace(milon27)~ca1160c8-5784-4a4d-8b93-dbd5a16ebf71/collection/12238877-777ce19b-5ed0-4a9d-ada9-74506e32d70e?action=share&source=collection_link&creator=12238877"
     },
     "item": [
         {
@@ -1734,7 +1735,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"email\": \"test@g.com\",\r\n    \"password\": \"1234567\"\r\n}",
+                            "raw": "{\r\n    \"email\": \"immilon27@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -1748,122 +1749,6 @@
                         }
                     },
                     "response": [
-                        {
-                            "name": "login with email",
-                            "originalRequest": {
-                                "method": "POST",
-                                "header": [],
-                                "body": {
-                                    "mode": "raw",
-                                    "raw": "{\r\n    \"email\": \"test@g.com\",\r\n    \"password\": \"1234567\"\r\n}",
-                                    "options": {
-                                        "raw": {
-                                            "language": "json"
-                                        }
-                                    }
-                                },
-                                "url": {
-                                    "raw": "{{url}}/v1/auth/login-with-email",
-                                    "host": ["{{url}}"],
-                                    "path": ["v1", "auth", "login-with-email"]
-                                }
-                            },
-                            "status": "OK",
-                            "code": 200,
-                            "_postman_previewlanguage": "json",
-                            "header": [
-                                {
-                                    "key": "Content-Security-Policy",
-                                    "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
-                                },
-                                {
-                                    "key": "Cross-Origin-Embedder-Policy",
-                                    "value": "require-corp"
-                                },
-                                {
-                                    "key": "Cross-Origin-Opener-Policy",
-                                    "value": "same-origin"
-                                },
-                                {
-                                    "key": "Cross-Origin-Resource-Policy",
-                                    "value": "same-origin"
-                                },
-                                {
-                                    "key": "X-DNS-Prefetch-Control",
-                                    "value": "off"
-                                },
-                                {
-                                    "key": "X-Frame-Options",
-                                    "value": "SAMEORIGIN"
-                                },
-                                {
-                                    "key": "Strict-Transport-Security",
-                                    "value": "max-age=15552000; includeSubDomains"
-                                },
-                                {
-                                    "key": "X-Download-Options",
-                                    "value": "noopen"
-                                },
-                                {
-                                    "key": "X-Content-Type-Options",
-                                    "value": "nosniff"
-                                },
-                                {
-                                    "key": "Origin-Agent-Cluster",
-                                    "value": "?1"
-                                },
-                                {
-                                    "key": "X-Permitted-Cross-Domain-Policies",
-                                    "value": "none"
-                                },
-                                {
-                                    "key": "Referrer-Policy",
-                                    "value": "no-referrer"
-                                },
-                                {
-                                    "key": "X-XSS-Protection",
-                                    "value": "0"
-                                },
-                                {
-                                    "key": "Vary",
-                                    "value": "Origin"
-                                },
-                                {
-                                    "key": "Set-Cookie",
-                                    "value": "mm-at-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJ5ZmU3NTc0MzlhMnZjZmF3ZzJrdWRleGQiLCJpZCI6ImNsaGx3bjhxejAwMDB1cTcwbGh2a2JrN3QiLCJpYXQiOjE2ODQwNzA1NDksImV4cCI6MTY4NDA3MDU1OSwiaXNzIjoibWlsb24yNyJ9.RmLq5HTsapKOGY05MctRGc0Ku46QhfbGTozMVGsB-wM; Max-Age=31536000; Path=/; Expires=Mon, 13 May 2024 13:22:29 GMT; HttpOnly; SameSite=None"
-                                },
-                                {
-                                    "key": "Set-Cookie",
-                                    "value": "mm-rt-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJ5NTk3MzNyYnpid2RkNGljYTJoYjBwY24iLCJpZCI6ImNsaGx3bjhxejAwMDB1cTcwbGh2a2JrN3QiLCJpYXQiOjE2ODQwNzA1NDksImV4cCI6MTY4NDA3MDU3OSwiaXNzIjoibWlsb24yNyJ9.8t4163rqQ2bqo3cnn6gA06CzH6AxYtpTDunhf6fvX8Y; Max-Age=31536000; Path=/; Expires=Mon, 13 May 2024 13:22:29 GMT; HttpOnly; SameSite=None"
-                                },
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json; charset=utf-8"
-                                },
-                                {
-                                    "key": "Content-Length",
-                                    "value": "596"
-                                },
-                                {
-                                    "key": "ETag",
-                                    "value": "W/\"254-vg8M2YPFNUahTwbBYXmY9z1uxms\""
-                                },
-                                {
-                                    "key": "Date",
-                                    "value": "Sun, 14 May 2023 13:22:29 GMT"
-                                },
-                                {
-                                    "key": "Connection",
-                                    "value": "keep-alive"
-                                },
-                                {
-                                    "key": "Keep-Alive",
-                                    "value": "timeout=5"
-                                }
-                            ],
-                            "cookie": [],
-                            "body": "{\n    \"message\": \"user logged-in successfully\",\n    \"statusCode\": 200,\n    \"response\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJ5ZmU3NTc0MzlhMnZjZmF3ZzJrdWRleGQiLCJpZCI6ImNsaGx3bjhxejAwMDB1cTcwbGh2a2JrN3QiLCJpYXQiOjE2ODQwNzA1NDksImV4cCI6MTY4NDA3MDU1OSwiaXNzIjoibWlsb24yNyJ9.RmLq5HTsapKOGY05MctRGc0Ku46QhfbGTozMVGsB-wM\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJ5NTk3MzNyYnpid2RkNGljYTJoYjBwY24iLCJpZCI6ImNsaGx3bjhxejAwMDB1cTcwbGh2a2JrN3QiLCJpYXQiOjE2ODQwNzA1NDksImV4cCI6MTY4NDA3MDU3OSwiaXNzIjoibWlsb24yNyJ9.8t4163rqQ2bqo3cnn6gA06CzH6AxYtpTDunhf6fvX8Y\"\n    }\n}"
-                        },
                         {
                             "name": "error:login with email",
                             "originalRequest": {
@@ -1971,38 +1856,15 @@
                             ],
                             "cookie": [],
                             "body": "{\n    \"errorCode\": \"NOT_FOUND\",\n    \"message\": \"No User Found with demotest@g.com\"\n}"
-                        }
-                    ]
-                },
-                {
-                    "name": "register",
-                    "request": {
-                        "method": "POST",
-                        "header": [],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\r\n    \"provider\":\"simple\",\r\n    \"user\":{\r\n        \"fullName\":\"milon27\",\r\n        \"email\":\"immilon27@gmail.com\",\r\n        \"password\":\"1234567\",\r\n        \"gender\":\"male\"\r\n    }\r\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
                         },
-                        "url": {
-                            "raw": "{{url}}/v1/auth/register",
-                            "host": ["{{url}}"],
-                            "path": ["v1", "auth", "register"]
-                        }
-                    },
-                    "response": [
                         {
-                            "name": "register",
+                            "name": "login with email",
                             "originalRequest": {
                                 "method": "POST",
                                 "header": [],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\r\n    \"provider\":\"simple\",\r\n    \"user\":{\r\n        \"fullName\":\"milon27\",\r\n        \"email\":\"test@g.com\",\r\n        \"password\":\"1234567\",\r\n        \"gender\":\"male\"\r\n    }\r\n}",
+                                    "raw": "{\r\n    \"email\": \"immilon27@gmail.com\",\r\n    \"password\": \"1234567\"\r\n}",
                                     "options": {
                                         "raw": {
                                             "language": "json"
@@ -2010,15 +1872,23 @@
                                     }
                                 },
                                 "url": {
-                                    "raw": "{{url}}/v1/auth/register",
+                                    "raw": "{{url}}/v1/auth/login-with-email",
                                     "host": ["{{url}}"],
-                                    "path": ["v1", "auth", "register"]
+                                    "path": ["v1", "auth", "login-with-email"]
                                 }
                             },
                             "status": "OK",
                             "code": 200,
                             "_postman_previewlanguage": "json",
                             "header": [
+                                {
+                                    "key": "Vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Credentials",
+                                    "value": "true"
+                                },
                                 {
                                     "key": "Content-Security-Policy",
                                     "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
@@ -2072,16 +1942,12 @@
                                     "value": "0"
                                 },
                                 {
-                                    "key": "Vary",
-                                    "value": "Origin"
+                                    "key": "Set-Cookie",
+                                    "value": "mm-at-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJuaHRzYjVtbWp3ZzM3d2VxeXp1cWFqN3QiLCJpZCI6ImNsbTV1dHVkbTAwMDB1cXBveDNsZjIyYW0iLCJpYXQiOjE2OTM5MDEyNDMsImV4cCI6MTY5MzkwMTMwMywiaXNzIjoibWlsb24yNyJ9.m0FYaHHpx3PiAIub7SHnUdMUfnoLcWr4QpHY7EZwQp4; Max-Age=31536000; Path=/; Expires=Wed, 04 Sep 2024 08:07:23 GMT; HttpOnly; Secure; SameSite=None"
                                 },
                                 {
                                     "key": "Set-Cookie",
-                                    "value": "mm-at-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaDdkc3hjdTAwMDB1cWNnOXF4YnY1OW8iLCJpYXQiOjE2ODMwOTkxOTMsImV4cCI6MTY4MzEwMDA5MywiaXNzIjoibWlsb24yNyJ9.3AENwTaw6goLQNH4uCXCqxUafa3IHctgeOO1qqMP23E; Max-Age=31536000; Path=/; Expires=Thu, 02 May 2024 07:33:13 GMT; HttpOnly; SameSite=None"
-                                },
-                                {
-                                    "key": "Set-Cookie",
-                                    "value": "mm-rt-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaDdkc3hjdTAwMDB1cWNnOXF4YnY1OW8iLCJpYXQiOjE2ODMwOTkxOTMsImV4cCI6MTY5NjA1OTE5MywiaXNzIjoibWlsb24yNyJ9.MFJSAAkVSNf9op-hv0SOZpq0iHORhFmzRTpkhQ-n2cE; Max-Age=31536000; Path=/; Expires=Thu, 02 May 2024 07:33:13 GMT; HttpOnly; SameSite=None"
+                                    "value": "mm-rt-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJ2cDNzM2F5ZmxybXd1djVpMWdxaHBsNDAiLCJpZCI6ImNsbTV1dHVkbTAwMDB1cXBveDNsZjIyYW0iLCJpYXQiOjE2OTM5MDEyNDMsImV4cCI6MTY5MzkwMTYwMywiaXNzIjoibWlsb24yNyJ9.9T8T7GuzVruznwqKVwSWIqtAEPUlOLGL3HjZWknrfUg; Max-Age=31536000; Path=/; Expires=Wed, 04 Sep 2024 08:07:23 GMT; HttpOnly; Secure; SameSite=None"
                                 },
                                 {
                                     "key": "Content-Type",
@@ -2089,15 +1955,15 @@
                                 },
                                 {
                                     "key": "Content-Length",
-                                    "value": "493"
+                                    "value": "854"
                                 },
                                 {
                                     "key": "ETag",
-                                    "value": "W/\"1ed-VgqgZgNHdGnBR2N4PCg80WRZ6DA\""
+                                    "value": "W/\"356-zVCBA0Ln5DnQJYAO8wTpAMUDWUU\""
                                 },
                                 {
                                     "key": "Date",
-                                    "value": "Wed, 03 May 2023 07:33:13 GMT"
+                                    "value": "Tue, 05 Sep 2023 08:07:23 GMT"
                                 },
                                 {
                                     "key": "Connection",
@@ -2109,8 +1975,31 @@
                                 }
                             ],
                             "cookie": [],
-                            "body": "{\n    \"message\": \"user registered successfully\",\n    \"statusCode\": 200,\n    \"response\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaDdkc3hjdTAwMDB1cWNnOXF4YnY1OW8iLCJpYXQiOjE2ODMwOTkxOTMsImV4cCI6MTY4MzEwMDA5MywiaXNzIjoibWlsb24yNyJ9.3AENwTaw6goLQNH4uCXCqxUafa3IHctgeOO1qqMP23E\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNsaDdkc3hjdTAwMDB1cWNnOXF4YnY1OW8iLCJpYXQiOjE2ODMwOTkxOTMsImV4cCI6MTY5NjA1OTE5MywiaXNzIjoibWlsb24yNyJ9.MFJSAAkVSNf9op-hv0SOZpq0iHORhFmzRTpkhQ-n2cE\"\n    }\n}"
+                            "body": "{\n    \"message\": \"user logged-in successfully\",\n    \"statusCode\": 200,\n    \"response\": {\n        \"id\": \"clm5utudm0000uqpox3lf22am\",\n        \"fullName\": \"milon27\",\n        \"email\": \"immilon27@gmail.com\",\n        \"gender\": \"male\",\n        \"avatar\": null,\n        \"isEmailVerified\": false,\n        \"lastLoggedIn\": \"2023-09-05T05:12:49.000Z\",\n        \"createdAt\": \"2023-09-05T05:12:49.000Z\",\n        \"updatedAt\": \"2023-09-05T05:12:49.000Z\",\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJuaHRzYjVtbWp3ZzM3d2VxeXp1cWFqN3QiLCJpZCI6ImNsbTV1dHVkbTAwMDB1cXBveDNsZjIyYW0iLCJpYXQiOjE2OTM5MDEyNDMsImV4cCI6MTY5MzkwMTMwMywiaXNzIjoibWlsb24yNyJ9.m0FYaHHpx3PiAIub7SHnUdMUfnoLcWr4QpHY7EZwQp4\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJ2cDNzM2F5ZmxybXd1djVpMWdxaHBsNDAiLCJpZCI6ImNsbTV1dHVkbTAwMDB1cXBveDNsZjIyYW0iLCJpYXQiOjE2OTM5MDEyNDMsImV4cCI6MTY5MzkwMTYwMywiaXNzIjoibWlsb24yNyJ9.9T8T7GuzVruznwqKVwSWIqtAEPUlOLGL3HjZWknrfUg\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "register",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"provider\":\"simple\",\r\n    \"user\":{\r\n        \"fullName\":\"new\",\r\n        \"email\":\"new@gmail.com\",\r\n        \"password\":\"1234567\",\r\n        \"gender\":\"male\"\r\n    }\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
                         },
+                        "url": {
+                            "raw": "{{url}}/v1/auth/register",
+                            "host": ["{{url}}"],
+                            "path": ["v1", "auth", "register"]
+                        }
+                    },
+                    "response": [
                         {
                             "name": "error:register",
                             "originalRequest": {
@@ -2218,6 +2107,126 @@
                             ],
                             "cookie": [],
                             "body": "{\n    \"errorCode\": \"ALREADY_USED\",\n    \"message\": \"user email is already used!\"\n}"
+                        },
+                        {
+                            "name": "register",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"provider\":\"simple\",\r\n    \"user\":{\r\n        \"fullName\":\"new\",\r\n        \"email\":\"new@gmail.com\",\r\n        \"password\":\"1234567\",\r\n        \"gender\":\"male\"\r\n    }\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/v1/auth/register",
+                                    "host": ["{{url}}"],
+                                    "path": ["v1", "auth", "register"]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "Access-Control-Allow-Credentials",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "Content-Security-Policy",
+                                    "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                                },
+                                {
+                                    "key": "Cross-Origin-Embedder-Policy",
+                                    "value": "require-corp"
+                                },
+                                {
+                                    "key": "Cross-Origin-Opener-Policy",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "Cross-Origin-Resource-Policy",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "X-DNS-Prefetch-Control",
+                                    "value": "off"
+                                },
+                                {
+                                    "key": "X-Frame-Options",
+                                    "value": "SAMEORIGIN"
+                                },
+                                {
+                                    "key": "Strict-Transport-Security",
+                                    "value": "max-age=15552000; includeSubDomains"
+                                },
+                                {
+                                    "key": "X-Download-Options",
+                                    "value": "noopen"
+                                },
+                                {
+                                    "key": "X-Content-Type-Options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "Origin-Agent-Cluster",
+                                    "value": "?1"
+                                },
+                                {
+                                    "key": "X-Permitted-Cross-Domain-Policies",
+                                    "value": "none"
+                                },
+                                {
+                                    "key": "Referrer-Policy",
+                                    "value": "no-referrer"
+                                },
+                                {
+                                    "key": "X-XSS-Protection",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "Set-Cookie",
+                                    "value": "mm-at-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJnMmdtdjhsdHcxaDdvdzhrY3V6eWlybjAiLCJpZCI6ImNsbTYxMnJ2djAwMDB1cThjeDM1M2UwMHYiLCJpYXQiOjE2OTM5MDEyNjMsImV4cCI6MTY5MzkwMTMyMywiaXNzIjoibWlsb24yNyJ9.SXuww9pgZlcEESkLWUDjmErCP5TFekir0u8TTCwfe4c; Max-Age=31536000; Path=/; Expires=Wed, 04 Sep 2024 08:07:43 GMT; HttpOnly; Secure; SameSite=None"
+                                },
+                                {
+                                    "key": "Set-Cookie",
+                                    "value": "mm-rt-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJubXZ1N3ZvOXFvdWoyZjlzZ2tneXZ4MmIiLCJpZCI6ImNsbTYxMnJ2djAwMDB1cThjeDM1M2UwMHYiLCJpYXQiOjE2OTM5MDEyNjMsImV4cCI6MTY5MzkwMTYyMywiaXNzIjoibWlsb24yNyJ9.0QLtfmcrbX24PGv78aoGKtz1GsrkM3WR0Ta6aP2nSek; Max-Age=31536000; Path=/; Expires=Wed, 04 Sep 2024 08:07:43 GMT; HttpOnly; Secure; SameSite=None"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "Content-Length",
+                                    "value": "845"
+                                },
+                                {
+                                    "key": "ETag",
+                                    "value": "W/\"34d-Qm5dWLgOZ7EXNa0cnd9qu5toaa0\""
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Tue, 05 Sep 2023 08:07:43 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Keep-Alive",
+                                    "value": "timeout=5"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"user registered successfully\",\n    \"statusCode\": 200,\n    \"response\": {\n        \"id\": \"clm612rvv0000uq8cx353e00v\",\n        \"fullName\": \"new\",\n        \"email\": \"new@gmail.com\",\n        \"gender\": \"male\",\n        \"avatar\": null,\n        \"isEmailVerified\": false,\n        \"lastLoggedIn\": \"2023-09-05T08:07:43.000Z\",\n        \"createdAt\": \"2023-09-05T08:07:43.000Z\",\n        \"updatedAt\": \"2023-09-05T08:07:43.000Z\",\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdF9yYW5kb20iOiJnMmdtdjhsdHcxaDdvdzhrY3V6eWlybjAiLCJpZCI6ImNsbTYxMnJ2djAwMDB1cThjeDM1M2UwMHYiLCJpYXQiOjE2OTM5MDEyNjMsImV4cCI6MTY5MzkwMTMyMywiaXNzIjoibWlsb24yNyJ9.SXuww9pgZlcEESkLWUDjmErCP5TFekir0u8TTCwfe4c\",\n        \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJydF9yYW5kb20iOiJubXZ1N3ZvOXFvdWoyZjlzZ2tneXZ4MmIiLCJpZCI6ImNsbTYxMnJ2djAwMDB1cThjeDM1M2UwMHYiLCJpYXQiOjE2OTM5MDEyNjMsImV4cCI6MTY5MzkwMTYyMywiaXNzIjoibWlsb24yNyJ9.0QLtfmcrbX24PGv78aoGKtz1GsrkM3WR0Ta6aP2nSek\"\n    }\n}"
                         }
                     ]
                 },
@@ -2655,6 +2664,105 @@
                             ],
                             "cookie": [],
                             "body": "{\n    \"message\": \"user information\",\n    \"statusCode\": 200,\n    \"response\": {\n        \"id\": \"clhlwn8qz0000uq70lhvkbk7t\",\n        \"fullName\": \"milon27\",\n        \"email\": \"test@g.com\",\n        \"gender\": \"male\",\n        \"avatar\": null,\n        \"isEmailVerified\": false,\n        \"lastLoggedIn\": \"2023-05-13T11:29:27.000Z\",\n        \"createdAt\": \"2023-05-13T11:29:27.000Z\",\n        \"updatedAt\": \"2023-05-13T11:29:27.000Z\"\n    }\n}"
+                        },
+                        {
+                            "name": "error: expired",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/v1/user",
+                                    "host": ["{{url}}"],
+                                    "path": ["v1", "user"]
+                                }
+                            },
+                            "status": "Unauthorized",
+                            "code": 401,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Security-Policy",
+                                    "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                                },
+                                {
+                                    "key": "Cross-Origin-Embedder-Policy",
+                                    "value": "require-corp"
+                                },
+                                {
+                                    "key": "Cross-Origin-Opener-Policy",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "Cross-Origin-Resource-Policy",
+                                    "value": "same-origin"
+                                },
+                                {
+                                    "key": "X-DNS-Prefetch-Control",
+                                    "value": "off"
+                                },
+                                {
+                                    "key": "X-Frame-Options",
+                                    "value": "SAMEORIGIN"
+                                },
+                                {
+                                    "key": "Strict-Transport-Security",
+                                    "value": "max-age=15552000; includeSubDomains"
+                                },
+                                {
+                                    "key": "X-Download-Options",
+                                    "value": "noopen"
+                                },
+                                {
+                                    "key": "X-Content-Type-Options",
+                                    "value": "nosniff"
+                                },
+                                {
+                                    "key": "Origin-Agent-Cluster",
+                                    "value": "?1"
+                                },
+                                {
+                                    "key": "X-Permitted-Cross-Domain-Policies",
+                                    "value": "none"
+                                },
+                                {
+                                    "key": "Referrer-Policy",
+                                    "value": "no-referrer"
+                                },
+                                {
+                                    "key": "X-XSS-Protection",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "Vary",
+                                    "value": "Origin"
+                                },
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json; charset=utf-8"
+                                },
+                                {
+                                    "key": "Content-Length",
+                                    "value": "55"
+                                },
+                                {
+                                    "key": "ETag",
+                                    "value": "W/\"37-D9PGJ7w1SpoGBEWTGDi2SJNTV/8\""
+                                },
+                                {
+                                    "key": "Date",
+                                    "value": "Tue, 05 Sep 2023 05:13:33 GMT"
+                                },
+                                {
+                                    "key": "Connection",
+                                    "value": "keep-alive"
+                                },
+                                {
+                                    "key": "Keep-Alive",
+                                    "value": "timeout=5"
+                                }
+                            ],
+                            "cookie": [],
+                            "body": "{\n    \"errorCode\": \"TOKEN_EXPIRED\",\n    \"message\": \"token expired\"\n}"
                         }
                     ]
                 }
