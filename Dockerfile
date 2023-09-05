@@ -23,7 +23,7 @@ WORKDIR /app
 COPY --from=build /app/.env.dev ./.env
 COPY --from=build /app/package.json .
 COPY --from=build /app/pnpm-lock.yaml .
-COPY --from=build /app/lib ./lib
+COPY --from=build /app/resources ./resources
 COPY --from=build /app/public ./public
 COPY --from=build /app/node_modules/ ./node_modules/
 COPY --from=build /app/dist/ ./dist/
@@ -46,7 +46,7 @@ WORKDIR /app
 COPY --from=build /app/.env.staging ./.env
 COPY --from=build /app/package.json .
 COPY --from=build /app/pnpm-lock.yaml .
-COPY --from=build /app/lib ./lib
+COPY --from=build /app/resources ./resources
 COPY --from=build /app/public ./public
 COPY --from=build /app/node_modules/ ./node_modules/
 COPY --from=build /app/dist/ ./dist/
@@ -69,7 +69,7 @@ WORKDIR /app
 COPY --from=build /app/.env.prod ./.env
 COPY --from=build /app/package.json .
 COPY --from=build /app/pnpm-lock.yaml .
-COPY --from=build /app/lib ./lib
+COPY --from=build /app/resources ./resources
 COPY --from=build /app/public ./public
 COPY --from=build /app/node_modules/ ./node_modules/
 COPY --from=build /app/dist/ ./dist/

@@ -4,3 +4,4 @@ dist
 .env.test
 .env.prod
 .env.staging
+account-key.json

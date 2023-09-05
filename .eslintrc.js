@@ -17,7 +17,7 @@ module.exports = {
         project: "./tsconfig.json",
     },
     plugins: ["@typescript-eslint", "prettier"],
-    ignorePatterns: ["node_modules", "lib", "dist", "test"],
+    ignorePatterns: ["node_modules", "resources", "dist", "vitest.config.ts"],
     rules: {
         "prettier/prettier": [
             "warn",
@@ -25,7 +25,7 @@ module.exports = {
                 endOfLine: "auto",
             },
         ],
-        "no-console": "off",
+        "no-console": "warn",
         "linebreak-style": "off",
         "no-nested-ternary": "off",
         radix: "off",
@@ -33,9 +33,9 @@ module.exports = {
         "import/prefer-default-export": "off",
         "class-methods-use-this": "off",
         "@typescript-eslint/dot-notation": "off",
-        // "require-await": "error",
         "require-await": ["error"],
         "@typescript-eslint/no-floating-promises": ["error"],
+        "no-await-in-loop": ["off"],
     },
 }
 

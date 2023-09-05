@@ -1,26 +1,27 @@
 {
     "name": "nestpress-server",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "An express boilerplate structured like nest.js, with completed authentication with refresh access token used ORM as prisma.",
     "main": "dist/src/server.js",
     "prisma": {
-        "schema": "./lib/prisma/schema.prisma"
+        "schema": "./resources/prisma/schema.prisma"
     },
     "scripts": {
         "start": "node dist/src/server.js",
         "dev": "nodemon --files src/server.ts",
-        "build": "npm run clean &&  tsc",
+        "build": "tsc --outDir dist",
         "clean": "rm -rf dist/*",
         "lint": "npx eslint . --fix",
         "lint:check": "npx eslint .",
-        "test": "npm run prisma:reset && vitest --no-threads",
+        "test": "npm run prisma:reset && vitest --config ./vitest.config.ts",
         "prisma:reset": "prisma migrate reset",
         "prisma:dev": "prisma migrate dev",
         "prisma:deploy": "prisma migrate deploy",
         "prisma:gen": "prisma generate",
         "prisma:rb": "prisma migrate resolve --rolled-back '20221121053103_add_user_in_reaction'",
-        "seed": "ts-node --files lib/prisma/seed.ts",
-        "try": "ts-node --files lib/try.ts",
+        "seed": "ts-node --files resources/prisma/seed.ts",
+        "try": "ts-node --files resources/try.ts",
+        "version:inc": "npm version patch --no-git-tag-version && git add .",
         "prepare": "husky install"
     },
     "keywords": [

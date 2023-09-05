@@ -1,0 +1,14 @@
+{
+    "instruction": "rename this file to account-key.json and update it's value",
+    "type": "service_account",
+    "project_id": "xxx-d7f67",
+    "private_key_id": "xxxxxxxxxxxxxxxxxxxxxxxxx",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDW1boQuckK8LT4\nfuY0ybuwZOGx01m8qtSIRtEupk9TFoJnuMFpuloMJHLxT\nFhM1km1=\n-----END PRIVATE KEY-----\n",
+    "client_email": "xxxxxxxxxx@xxxx.iam.gserviceaccount.com",
+    "client_id": "xxxxxxxx",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-wu181%40test-d7f67.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}

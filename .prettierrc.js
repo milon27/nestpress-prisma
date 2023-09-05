@@ -5,6 +5,7 @@ module.exports = {
     printWidth: 115,
     semi: false,
     singleQuote: false,
+    ignore: ["**/*.md", "!/*.md"],
 }
 
 // if you change any rule then reload the window
